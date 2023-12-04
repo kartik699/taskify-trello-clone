@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.2",
+    "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
@@ -17,8 +18,10 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "shadcn-ui": "^0.4.1",
     "tailwind-merge": "^2.0.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "usehooks-ts": "^2.9.1"
   },
   "devDependencies": {
     "@types/node": "^20",
