@@ -3,6 +3,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { FormPopover } from "@/components/form/form-popover";
 
 import MobileSidebar from "./mobile-sidebar";
 
@@ -14,20 +15,24 @@ export default function Navbar() {
                 <div className="hidden md:flex">
                     <Logo />
                 </div>
-                <Button
-                    size="sm"
-                    className="hidden md:block rounded-sm h-auto py-1.5 px-2"
-                    variant="primary"
-                >
-                    Create
-                </Button>
-                <Button
-                    size="sm"
-                    className="rounded-sm block md:hidden"
-                    variant="primary"
-                >
-                    <Plus className="h-4 w-4" />
-                </Button>
+                <FormPopover side="bottom" align="start" sideOffset={18}>
+                    <Button
+                        size="sm"
+                        className="hidden md:block rounded-sm h-auto py-1.5 px-2"
+                        variant="primary"
+                    >
+                        Create
+                    </Button>
+                </FormPopover>
+                <FormPopover sideOffset={10}>
+                    <Button
+                        size="sm"
+                        className="rounded-sm block md:hidden"
+                        variant="primary"
+                    >
+                        <Plus className="h-4 w-4" />
+                    </Button>
+                </FormPopover>
             </div>
             <div className="ml-auto flex items-center gap-x-2">
                 <OrganizationSwitcher
