@@ -3,6 +3,9 @@ import { auth } from "@clerk/nextjs";
 
 import { db } from "@/lib/db";
 
+import BoardNavbar from "./_components/board-navbar";
+
+// change tab title to board title
 export async function generateMetadata({
     params,
 }: {
@@ -49,6 +52,8 @@ export default async function BoardIdPageLayout({
             className="relative h-full bg-no-repeat bg-cover bg-center"
             style={{ backgroundImage: `url(${board.imageFullUrl})` }}
         >
+            <BoardNavbar data={board} />
+            <div className="absolute bg-black/10 inset-0" />
             <main className="pt-28 relative h-full">{children}</main>
         </div>
     );
