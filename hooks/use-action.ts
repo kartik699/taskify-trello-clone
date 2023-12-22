@@ -12,6 +12,7 @@ interface UseActionOptions<TOutput> {
     onComplete?: () => void;
 }
 
+// hook to create a safe action
 export const useAction = <TInput, TOutput>(
     action: Action<TInput, TOutput>,
     options: UseActionOptions<TOutput> = {}
