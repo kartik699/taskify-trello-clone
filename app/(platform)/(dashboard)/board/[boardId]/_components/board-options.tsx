@@ -48,7 +48,7 @@ export default function BoardOptions({ id }: BoardOptionsProps) {
                     </Button>
                 </PopoverClose>
                 <Button
-                    className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+                    className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm text-rose-500 hover:text-rose-600"
                     variant="ghost"
                     onClick={onDelete}
                     disabled={isLoading}
