@@ -1,6 +1,6 @@
 "use client";
 
-import { ElementRef, useRef } from "react";
+import { ElementRef, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -35,6 +35,12 @@ export const FormPopover = ({
     const router = useRouter();
     const closeRef = useRef<ElementRef<"button">>(null);
 
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const { execute, fieldErrors } = useAction(createBoard, {
         onSuccess: (data) => {
             // toast for showing success message for creating a board
@@ -54,6 +60,10 @@ export const FormPopover = ({
 
         execute({ title, image });
     };
+
+    if (!isMounted) {
+        return null;
+    }
 
     // Popover UI for creating a board
     return (
