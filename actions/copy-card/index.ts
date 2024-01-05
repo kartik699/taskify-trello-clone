@@ -2,8 +2,10 @@
 
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 import { createSafeAction } from "@/lib/create-safe-action";
+import { createAuditLog } from "@/lib/create-audit-log";
 import { db } from "@/lib/db";
 
 import { InputType, ReturnType } from "./types";
@@ -50,7 +52,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
         const newOrder = lastCard ? lastCard.order + 1 : 1;
 
-        // copy list with all the cards
+        // copy card
         card = await db.card.create({
             data: {
                 order: newOrder,
@@ -58,6 +60,14 @@ const handler = async (data: InputType): Promise<ReturnType> => {
                 description: cardToCopy.description,
                 listId: cardToCopy.listId,
             },
+        });
+
+        // create audit log
+        await createAuditLog({
+            entityId: card.id,
+            entityType: ENTITY_TYPE.CARD,
+            entityTitle: card.title,
+            action: ACTION.CREATE,
         });
     } catch (error) {
         return {

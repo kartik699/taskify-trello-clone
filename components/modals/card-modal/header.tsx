@@ -26,6 +26,10 @@ export default function Header({ data }: HeaderProps) {
                 queryKey: ["card", data.id],
             });
 
+            queryClient.invalidateQueries({
+                queryKey: ["card-logs", data.id],
+            });
+
             toast.success(`Card" ${title}" renamed to "${data.title}"`);
             setTitle(data.title);
         },
