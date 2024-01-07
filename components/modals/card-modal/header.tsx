@@ -16,7 +16,7 @@ interface HeaderProps {
     data: CardWithList;
 }
 
-export default function Header({ data }: HeaderProps) {
+function Header({ data }: HeaderProps) {
     const queryClient = useQueryClient();
     const params = useParams();
 
@@ -89,3 +89,5 @@ Header.Skeleton = () => {
 };
 
 Header.displayName = "Header";
+
+export default Header;

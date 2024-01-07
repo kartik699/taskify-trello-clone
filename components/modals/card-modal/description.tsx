@@ -19,7 +19,7 @@ interface DescriptionProps {
     data: CardWithList;
 }
 
-export default function Description({ data }: DescriptionProps) {
+function Description({ data }: DescriptionProps) {
     const queryClient = useQueryClient();
     const params = useParams();
 
@@ -130,3 +130,5 @@ Description.Skeleton = () => {
 };
 
 Description.displayName = "Description";
+
+export default Description;
