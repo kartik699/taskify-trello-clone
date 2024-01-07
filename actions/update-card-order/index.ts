@@ -8,7 +8,6 @@ import { db } from "@/lib/db";
 
 import { InputType, ReturnType } from "./types";
 import { UpdateCardOrder } from "./schema";
-import { update } from "lodash";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
     const { userId, orgId } = auth();

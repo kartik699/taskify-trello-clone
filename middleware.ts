@@ -5,7 +5,7 @@ import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
 // Please edit this to allow other routes to be public as needed.
 // See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
 export default authMiddleware({
-    publicRoutes: ["/"],
+    publicRoutes: ["/", "/api/webhook"],
     afterAuth(auth, req) {
         // if user is signed in and on a public route, redirect to org selection or org page and not on public route
         if (auth.userId && auth.isPublicRoute) {
