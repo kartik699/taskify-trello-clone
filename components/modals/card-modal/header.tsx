@@ -16,6 +16,7 @@ interface HeaderProps {
     data: CardWithList;
 }
 
+// eslint-disable-next-line react/display-name
 function Header({ data }: HeaderProps) {
     const queryClient = useQueryClient();
     const params = useParams();

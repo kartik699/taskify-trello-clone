@@ -19,6 +19,7 @@ interface DescriptionProps {
     data: CardWithList;
 }
 
+// eslint-disable-next-line react/display-name
 function Description({ data }: DescriptionProps) {
     const queryClient = useQueryClient();
     const params = useParams();
