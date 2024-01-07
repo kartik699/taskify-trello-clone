@@ -87,3 +87,5 @@ Header.Skeleton = () => {
         </div>
     );
 };
+
+Header.displayName = "Header";

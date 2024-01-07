@@ -128,3 +128,5 @@ Description.Skeleton = () => {
         </div>
     );
 };
+
+Description.displayName = "Description";
