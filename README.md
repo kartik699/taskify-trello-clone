@@ -25,10 +25,6 @@ Key Features:
 - Prisma ORM
 - shadcnUI & TailwindCSS
 
-Upcoming Features:
-- Email Notifications
-- More Pro features
-
 ### Prerequisites
 
 **Node version 18.x.x**
